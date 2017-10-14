@@ -1,0 +1,132 @@
+// Script - TesteLista.script
+// Programação Modular - 2017.2
+// Grupo: 
+//Gabriel Cantergiani
+//Wellington Bezerra
+//Gabrielle Bradenburg
+
+// Propósito: Testar todas as funções e possíveis condições de retorno do módulo Lista Duplamente Encadeada
+
+
+== Inicializar valores
+=declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
+
+=declararparm   nome0    string  "pedro"
+=declararparm   nome1    string  "joão"
+=declararparm   nome2    string  "gabriel"
+=declararparm   nome3    string  "lucas"
+
+=declararparm   email0    string  "pedro@gmail.com"
+=declararparm   email1    string  "joão@gmail.com"
+=declararparm   email2    string  "gabriel@gmail.com"
+=declararparm   email3    string  "lucas@gmail.com"
+
+=declararparm   cidade0    string  "rio de janeiro"
+=declararparm   cidade1    string  "sao paulo"
+=declararparm   cidade2    string  "belo horizonte"
+=declararparm   cidade3    string  "fortaleza"
+
+=declararparm   idade0    int  22
+=declararparm   idade1    int  35
+=declararparm   idade2    int  42
+=declararparm   idade3    int  55
+
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+// ==========      Início dos testes   =====================================================================
+
+//  Testes com Lista Vazia  ================================
+
+==Criação de Lista
+=criarlista		lista0
+
+== Verificar Obter Valor de Lista Vazia
+=obtervalorelem	lista0	email0	pNULL
+
+==Verificar avançar elemento em Lista Vazia
+=avancarelem	lista0	1		ListaVazia
+
+//==Verifica procurar valor em Lista Vazia
+//=procurarvalor	lista0	nome0 email0 cidade0 idade0 ListaVazia
+
+==Verificar excluir elemento em Lista Vazia
+=excluirelem	lista0	ListaVazia
+
+//  Testes de Inserção 	de Elementos  ==============================
+
+== Verifica Inserção de Elemento Antes em Lista Vazia
+=inselemantes	lista0	nome0 email0 cidade0 idade0	OK
+
+==Cria outra lista
+=criarlista		lista1
+
+==Veririca Inserção de Elemento Após em Lista Vazia
+=inselemapos	lista1	nome0 email0 cidade0 idade0	OK
+
+==Verifica Inserção de Elemento Antes
+=inselemantes	lista0	nome1 email1 cidade1 idade1	OK
+
+==Verifica Inserção de Elemento Após
+=inselemapos	lista1	nome1 email1 cidade1 idade1	OK
+
+==Verifica Inserção de Elemento Após
+=inselemapos	lista0	nome2 email2 cidade2 idade2	OK
+
+//	Testes de Percurso pela Lista (Avançar Elemento, Ir Fim e Ir Início) =======================
+
+==Verifica Avançar Elemento Corrente para frente (direção do fim)
+=avancarelem	lista0	1	OK
+
+==Verifica Avançar Elemento Corrente para trás (direção início)
+=avancarelem	lista1	-1	OK
+
+==Verifica Avançar Elemento Final  (Retorno Fim de Lista)
+=avancarelem	lista0	1	FimLista
+
+==Verifica Ir Início de Lista
+=irinicio		lista0
+
+==Verifica Ir Final de Lista
+=irfinal		lista1
+
+//	Testes de Obtenção de Valor e Procura de Valor de um Elemento da Lista  ========================================
+
+==Verifica Obter valor de elemento , ponteiro não null
+=obtervalorelem	lista0	email1	pNaoNULL
+
+==Verifica Obter valor de elemento , outro ponteiro não null
+=obtervalorelem lista0	email0	pNaoNULL
+
+==Verifica Procurar valor de elemento que não existe na lista
+=procurarvalor	lista0	nome3 email3 cidade3 idade3	NaoAchou
+
+// Teste de Exclusão de um Elemento da Lista  ==============================================
+
+==Verifica exclusão de elemento
+=excluirelem	lista1	OK
+
+// Testes de Esvaziar e Destruir lista =====================================================
+
+==Verifica esvaziar lista
+=esvaziarlista	lista0
+=esvaziarlista	lista1
+
+==Verifica se lista ficou vazia
+=avancarelem	lista0	1	ListaVazia
+
+==Verifica destruir lista
+=destruirlista	lista0
+=destruirlista	lista1
+
+
+
+// Fim do script de teste para o modulo Lista
